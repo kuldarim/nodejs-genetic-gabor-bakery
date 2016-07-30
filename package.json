@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-genetic-gabor-bakery",
+  "version": "1.0.0",
+  "description": "Bake gabor kernels",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Rimvydas Kulda",
+  "license": "ISC",
+   "dependencies": {
+    "express": "4.14.0"
+  }
+}
