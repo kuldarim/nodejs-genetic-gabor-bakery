@@ -2,7 +2,8 @@ const express = require('express');
 const request = require('request');
 const cv = require('opencv');
 
-const matHelper = require('./libs/matHelper');
+const matHelper = require('./lib/matHelper');
+const geneticBrick = require('./lib/genetic-brick');
 
 const app = express();
 
@@ -18,6 +19,11 @@ app.get('/get-greyscale', (req, res) => {
       res.send(responseJson);
     }
   })
+});
+
+app.get('/genetic', (req, res) => {
+  geneticBrick.runGeneticAlgorithmTest();
+  res.send('You deserve a glass of hot red vine. Why? Because I do work without any errors');
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
