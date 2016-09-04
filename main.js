@@ -5,6 +5,7 @@ const cv = require('opencv');
 const matHelper = require('./lib/matHelper');
 const geneticBasicTest= require('./lib/genetic-algorithm/basic-test/test');
 const geneticMatrixTest = require('./lib/genetic-algorithm/matrix-test/test');
+const statisticsTest = require('./lib/statistics/test');
 
 const app = express();
 
@@ -52,6 +53,11 @@ app.get('/genetic-algorithm/basic-test', (req, res) => {
 app.get('/genetic-algorithm/matrix-test', (req, res) => {
   geneticMatrixTest.run();
   res.send('It`s time to rest, I work without any problems');
+});
+
+app.get('/statistics/test', (req, res) => {
+  statisticsTest.run();
+  res.send('Hey man, you are osom');
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
