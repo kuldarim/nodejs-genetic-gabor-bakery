@@ -3,8 +3,8 @@ const request = require('request');
 const cv = require('opencv');
 
 const matHelper = require('./lib/matHelper');
-const geneticAlgoritmTest= require('./lib/genetic-algorithm-test');
-const algorithm = require('./lib/genetic/genetic-algorithm/algorithm');
+const geneticBasicTest= require('./lib/genetic-algorithm/basic-test/test');
+const geneticMatrixTest = require('./lib/genetic-algorithm/matrix-test/test');
 
 const app = express();
 
@@ -44,13 +44,13 @@ app.get('/get-greyscale-console-output', (req, res) => {
   })
 });
 
-app.get('/genetic-algoritm-test', (req, res) => {
-  geneticAlgoritmTest.runTest();
+app.get('/genetic-algorithm/basic-test', (req, res) => {
+  geneticBasicTest.run();
   res.send('You deserve a glass of hot red vine. Why? Because I do work without any errors');
 });
 
-app.get('/genetic-matrix-test', (req, res) => {
-  algorithm.runTest();
+app.get('/genetic-algorithm/matrix-test', (req, res) => {
+  geneticMatrixTest.run();
   res.send('It`s time to rest, I work without any problems');
 });
 
