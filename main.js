@@ -4,6 +4,7 @@ const cv = require('opencv');
 
 const matHelper = require('./lib/matHelper');
 const geneticAlgoritmTest= require('./lib/genetic-algorithm-test');
+const algorithm = require('./lib/genetic/genetic-algorithm/algorithm');
 
 const app = express();
 
@@ -46,6 +47,11 @@ app.get('/get-greyscale-console-output', (req, res) => {
 app.get('/genetic-algoritm-test', (req, res) => {
   geneticAlgoritmTest.runTest();
   res.send('You deserve a glass of hot red vine. Why? Because I do work without any errors');
+});
+
+app.get('/genetic-matrix-test', (req, res) => {
+  algorithm.runTest();
+  res.send('It`s time to rest, I work without any problems');
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
