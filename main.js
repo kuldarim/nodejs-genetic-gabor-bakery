@@ -6,6 +6,7 @@ const matHelper = require('./lib/matHelper');
 const geneticBasicTest= require('./lib/genetic-algorithm/basic-test/test');
 const geneticMatrixTest = require('./lib/genetic-algorithm/matrix-test/test');
 const statisticsTest = require('./lib/statistics/test');
+const chromosome = require('./lib/genetic-algorithm/chromosome/chromosome');
 
 const app = express();
 
@@ -57,6 +58,16 @@ app.get('/genetic-algorithm/matrix-test', (req, res) => {
 
 app.get('/statistics/test', (req, res) => {
   statisticsTest.run();
+  res.send('Hey man, you are osom');
+});
+
+app.get('/test', (req, res) => {
+  const c1 = new chromosome(['1-1', '2-2', '3-3', '4-4', '3-1']);
+  const c2 = new chromosome(['1-1', '2-2', '3-3', '4-4', '3-1']);
+  console.log(c1);
+  console.log(c2);
+  c1.crossover(c2).printValues();
+  c1.mutate().printValues();
   res.send('Hey man, you are osom');
 });
 
