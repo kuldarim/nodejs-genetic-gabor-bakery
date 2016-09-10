@@ -1,6 +1,6 @@
 ## Quickstart
 
-1. $ npm run start
+1. $ npm start
 2. Then, load http://localhost:3000/ in a browser to see the output.
 
 ## Methods
