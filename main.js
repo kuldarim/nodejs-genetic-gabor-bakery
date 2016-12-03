@@ -5,9 +5,11 @@ const cv = require('opencv');
 const matHelper = require('./lib/matHelper');
 const geneticBasicTest= require('./lib/genetic-algorithm/basic-test/test');
 const geneticMatrixTest = require('./lib/genetic-algorithm/matrix-test/test');
-const realDataMatrixTest = require('./lib/genetic-algorithm/real-data-test/test');
+
 const statisticsTest = require('./lib/statistics/test');
 const chromosome = require('./lib/genetic-algorithm/chromosome/chromosome');
+
+const geneticMain = require('./lib/genetic-algorithm/main');
 
 const app = express();
 
@@ -50,23 +52,8 @@ app.get('/get-greyscale-console-output', (req, res) => {
 app.get('/get-distance', (req, res) => {
   request('http://localhost:8080/distance', (error, response, body) => {
     if (!error && response.statusCode == 200) {
-      const responseJson = JSON.parse(response.body)
-      // const mat = matHelper.convertJsonToMat(responseJson);
-      // matHelper.displayMat(mat);
-
-      // // Converting matrix to array
-      
-      // const rows = responseJson.rows;
-      // const pixels = [];
-      // for (let i = 0; i < rows; i++) {
-      //   pixels.push(mat.row(i));
-      // }
-
-      // console.log(pixels);
-      console.log(responseJson.length);
-      realDataMatrixTest.run(responseJson);
-
-      res.send(responseJson);
+      const responseJson = JSON.parse(response.body);
+      geneticMain.run(responseJson, (data) => res.send(data));
     }
   })
 });
