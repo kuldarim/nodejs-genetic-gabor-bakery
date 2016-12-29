@@ -23,7 +23,7 @@ app.get('/get-distance', (req, res) => {
         request({
           method: 'POST',
           uri: 'http://localhost:8080/store',
-          json: JSON.stringify(data)
+          json: data.stats.max.values
         }, (error, response, body) => {
           if (!error && response.statusCode == 200) {
             res.send(data)
