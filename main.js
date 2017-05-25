@@ -20,9 +20,20 @@ app.get('/get-distance', (req, res) => {
     if (!error && response.statusCode == 200) {
       const responseJson = JSON.parse(response.body);
       geneticMain.run(responseJson, (data) => {
+        res.send(data.stats.max.values)
+      });
+    }
+  })
+});
+
+app.get('/gabor-test', (req, res) => {
+  request('http://localhost:8080/gabor-tester', (error, response, body) => {
+    if (!error && response.statusCode == 200) {
+      const responseJson = JSON.parse(response.body);
+      geneticMain.run(responseJson, (data) => {
         request({
           method: 'POST',
-          uri: 'http://localhost:8080/store',
+          uri: 'http://localhost:8080/gabor-tester-store',
           json: data.stats.max.values
         }, (error, response, body) => {
           if (!error && response.statusCode == 200) {

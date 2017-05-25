@@ -14,7 +14,7 @@
    "dependencies": {
     "express": "4.14.0",
     "request": "2.74.0",
-    "opencv": "5.0.0",
+    "opencv": "6.0.0",
     "genetic": "0.3.1",
     "jStat": "1.5.3",
     "lodash": "^4.15.0"

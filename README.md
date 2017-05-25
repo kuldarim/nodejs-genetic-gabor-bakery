@@ -12,3 +12,4 @@
    and prints out image row values to console
 5. http://localhost:3000/statistics/test statistical methods test
 6. /get-distance calls http://localhost:8080/distance to get the matrix and runs genetic algorithm on it
+§
